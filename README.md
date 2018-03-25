@@ -2,12 +2,17 @@
 
 Análise de logs de requests HTTP para o servidor WWW NASA Kennedy Space Center.
 
-[Fonte](http://ita.ee.lbl.gov/html/contrib/NASA-HTTP.html)
+[Fonte Original](http://ita.ee.lbl.gov/html/contrib/NASA-HTTP.html)
 
 # Datasets
 
-* [NASA_access_log_Jul95](ftp://ita.ee.lbl.gov/traces/NASA_access_log_Jul95.gz)
-* [NASA_access_log_Aug95](ftp://ita.ee.lbl.gov/traces/NASA_access_log_Aug95.gz)
+**NASA_access_log_Jul95**
+
+Download: ftp://ita.ee.lbl.gov/traces/NASA_access_log_Jul95.gz
+
+**NASA_access_log_Aug95**
+
+Download: ftp://ita.ee.lbl.gov/traces/NASA_access_log_Aug95.gz
 
 # Especificação Técnica
 
@@ -16,19 +21,16 @@ Análise de logs de requests HTTP para o servidor WWW NASA Kennedy Space Center.
 - Spark 2.3 [Link](https://www.apache.org/dyn/closer.lua/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.7.tgz)
 - SBT 1.1.1 [Link](https://www.scala-sbt.org/)
 
-# Compilando o código
-
-```shell
-sbt package
-```
-
 # Executando a aplicação
 
+O script `spark_submit.sh` lança a aplicação localmente.
+
+Deve-se passar como paramentro o número de cores para serem usados pelo cluster.
+
+O exemplo abaixo irá rodar a aplicação em 4 cores.
+
 ```shell
-$SPARK_HOME/bin/spark-submit \
-  --class "SimpleApp" \
-  --master local[4] \
-  target/scala-2.11/simple-project_2.11-1.0.jar
+./spark_submit.sh 4
 ```
 
 # Desenvolvedores
@@ -37,4 +39,10 @@ Executar o comando abaixo irá gerar os arquivos necessários para importar o pr
 
 ```shell
 sbt eclipse
+```
+
+## Gerando uma nova distribuição
+
+```shell
+sbt package
 ```
