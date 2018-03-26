@@ -4,6 +4,10 @@ Análise de logs de requests HTTP para o servidor WWW NASA Kennedy Space Center.
 
 [Fonte Original](http://ita.ee.lbl.gov/html/contrib/NASA-HTTP.html)
 
+O arquivo `.jar` da aplicação está disponível para download neste [Link](https://github.com/dbalduini/spark-nasa-logs/raw/master/dist/spark-nasa-logs_2.11-1.0.jar). 
+
+Este arquivo pode ser usado para lançar a app no Spark com o **spark-submit**. Para mais informações [clique aqui](https://spark.apache.org/docs/latest/submitting-applications.html#launching-applications-with-spark-submit).
+
 # Datasets
 
 É necessário fazer o download dos dois arquivos abaixo e move-los para a pasta raíz do projeto.
