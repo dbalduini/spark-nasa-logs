@@ -50,7 +50,7 @@ Executar o comando abaixo irá gerar todos os arquivos necessários para importa
 sbt eclipse
 ```
 
-## Gerando uma nova distribuição
+### Gerando uma nova distribuição
 
 ```shell
 sbt package
