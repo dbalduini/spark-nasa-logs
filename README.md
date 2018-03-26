@@ -10,15 +10,13 @@ Este arquivo pode ser usado para lançar a app no Spark com o **spark-submit**. 
 
 # Datasets
 
-É necessário fazer o download dos dois arquivos abaixo e move-los para a pasta raíz do projeto.
+É necessário fazer o download dos dois arquivos `NASA_*` abaixo.
 
-**NASA_access_log_Jul95**
+**NASA_access_log_Jul95** (ftp://ita.ee.lbl.gov/traces/NASA_access_log_Jul95.gz)
 
-Download: ftp://ita.ee.lbl.gov/traces/NASA_access_log_Jul95.gz
+**NASA_access_log_Aug95** (ftp://ita.ee.lbl.gov/traces/NASA_access_log_Aug95.gz)
 
-**NASA_access_log_Aug95**
-
-Download: ftp://ita.ee.lbl.gov/traces/NASA_access_log_Aug95.gz
+*Ambos devem ser colocados na mesma pasta onde o comando __spark-submit__ será executado.*
 
 # Dependências
 
@@ -34,9 +32,9 @@ Download: ftp://ita.ee.lbl.gov/traces/NASA_access_log_Aug95.gz
 
 # Executando a aplicação
 
-O script `spark_submit.sh` lança a aplicação localmente.
+O script `spark_submit.sh` usa o **spark-submit** para lançar a aplicação localmente.
 
-Deve-se passar como paramentro o número de cores (workers) para serem usados pelo cluster.
+É necessário informar como paramentro o número de cores (workers) para serem usados pelo cluster.
 
 O exemplo abaixo irá rodar a aplicação em 4 cores.
 
