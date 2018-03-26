@@ -1,7 +1,6 @@
 package com.github.dbalduini
 
-case class AccessLog(host: String, timestamp: String, url: String, code: String, 
-  bytes: Long, rawLine: String, invalidUrl: Boolean, invalidBytes: Boolean)
+case class AccessLog(host: String, timestamp: String, url: String, code: String, bytes: Long)
 
 object AccessLog {
 
@@ -15,12 +14,10 @@ object AccessLog {
       case LOG_ENTRY_PATTERN(host, ts, req, code, b) =>
         val url = getUrlFromRequest(req)
         val bytes = toLong(b)
-        Right(AccessLog(host, ts, url.getOrElse(req), code, bytes.getOrElse(0), line, url.isEmpty, bytes.isEmpty))
+        Right(AccessLog(host, ts, url.getOrElse(req), code, bytes.getOrElse(0)))
       case _ => Left(line)
     }
   }
-
-  private def validateUrl(url: String): Boolean = url.indexOf('/') > -1
 
   private def getUrlFromRequest(url: String): Option[String] = {
     val i = url.indexOf("/")
@@ -31,8 +28,6 @@ object AccessLog {
     return None
   }
 
-  def asLogFormat(a: AccessLog): String = "\"" + a.rawLine + "\""
-
   private def toLong(b: String): Option[Long] = {
     try {
       Some(b.toLong)
@@ -40,4 +35,5 @@ object AccessLog {
       case e: NumberFormatException => None
     }
   }
+
 }
